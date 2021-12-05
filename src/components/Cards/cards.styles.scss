@@ -1,0 +1,66 @@
+.Card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-elements);
+  border-radius: var(--default-radius);
+  box-shadow: var(--default-shadow-element);
+  cursor: pointer;
+  transition: all var(--default-timing-animation);
+  color: var(--color-text);
+  height: 100%;
+  overflow: hidden;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &-appear {
+    opacity: 0;
+  }
+
+  &-appear-active {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+
+  &-appear-done {
+    transition-delay: 0ms !important;
+  }
+
+  &__link {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__top {
+    flex: 1 1;
+    display: flex;
+    min-height: 12rem;
+    max-height: 20.5rem;
+  }
+
+  &__bottom {
+    padding: var(--default-padding);
+    padding-bottom: calc(var(--default-padding) * 2);
+    font-size: var(--font-size-small);
+    line-height: 22px;
+  }
+
+  &__name {
+    font-size: var(--font-size-normal);
+    font-weight: var(--font-weight-extra-bold);
+    margin-bottom: var(--default-padding);
+  }
+
+  &__label {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &__image {
+    max-width: 100%;
+  }
+}

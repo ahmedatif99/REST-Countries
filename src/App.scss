@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;700;800&display=swap");
+@import "./mixins";
+
+:root {
+  font-size: 62.5%;
+
+  --color-background: hsl(0, 0%, 98%);
+  --color-elements: hsl(0, 0%, 100%);
+  --color-border: hsl(0, 0%, 96%);
+  --color-text: hsl(200, 15%, 8%);
+  --color-input: hsl(0, 0%, 52%);
+  --desktop-width: 144rem;
+  --font-size-small: 1.4rem;
+  --font-size-normal: 1.6rem;
+  --font-size-large: 1.8rem;
+  --font-size-xLarge: 2.4rem;
+  --font-weight-light: 300;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
+  --default-padding: 2rem;
+  --default-timing-animation: 0.2s;
+  --input-height: 5.6rem;
+  --default-radius: 0.5rem;
+  --default-shadow-element: 0 0.2rem 0.5rem 0.3rem rgba(0, 0, 0, 0.04);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  font-size: var(--font-size-normal);
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--color-text);
+  transition: background-color var(--default-timing-animation);
+
+  @include for-size(mobile) {
+    --default-padding: 15px;
+  }
+
+  &.isDark {
+    --color-background: hsl(207, 26%, 17%);
+    --color-elements: hsl(209, 23%, 22%);
+    --color-text: hsl(0, 0%, 100%);
+    --color-border: hsl(207, 26%, 15%);
+  }
+}
