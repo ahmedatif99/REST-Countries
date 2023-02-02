@@ -13,7 +13,7 @@ const Countries = ({ countriesArray, searchInput, selectedRegion }) => {
   const [filteredCountries, setFilteredCountries] = useState([]);
 
   const fetchCountriesData = async () => {
-    const res = await fetch(`https://restcountries.com/v2/all`);
+    const res = await fetch(`https://restcountries.com/v3.1/all`);
     const countries = await res.json();
 
     setCountries(countries);
@@ -48,17 +48,17 @@ const Countries = ({ countriesArray, searchInput, selectedRegion }) => {
       <div className="Countries">
         {filteredCountries.length ? (
           <div className="Countries__content">
-            {filteredCountries.map((country) => {
-              const { name, population, region, capital, flag, numericCode } =
+            {filteredCountries.map((country, idx) => {
+              const { name, population, region, capital, flags } =
                 country;
               return (
                 <Cards
-                  key={numericCode}
-                  name={name}
+                  key={idx}
+                  name={name.official}
                   population={population}
                   region={region}
                   capital={capital === "Ramallah" ? "Jerusalem" : capital}
-                  flag={flag}
+                  flag={flags.png}
                 />
               );
             })}

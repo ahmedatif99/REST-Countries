@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate , useParams } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 
 import "./country-page.styles.scss";
@@ -10,7 +10,7 @@ export const formatNumber = (number) => {
 
 const Country = ({ countries }) => {
   const [country, setCountry] = useState([]);
-  const history = useHistory();
+  const navigate = useNavigate ();
   const { name } = useParams();
 
   const fetchCountryData = async () => {
@@ -24,7 +24,7 @@ const Country = ({ countries }) => {
     fetchCountryData();
   }, [countries]);
 
-  const goBack = () => history.push("/");
+  const goBack = () => navigate("/");
 
   return (
     <div className="Country">

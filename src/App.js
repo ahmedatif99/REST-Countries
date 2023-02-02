@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Header from "./components/Header/header.component";
 import Home from "./pages/Home/home.component.jsx";
@@ -18,14 +18,10 @@ function App() {
     <Router>
       <div className={`${isDark ? "App isDark" : "App"}`}>
         <Header isDark={isDark} setIsDark={toggleDarckMood} />
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/countries/:name">
-            <Country />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/" exact element={<Home/>}/>
+          <Route path="/countries/:name" element={<Country/>}/>
+        </Routes>
       </div>
     </Router>
   );
